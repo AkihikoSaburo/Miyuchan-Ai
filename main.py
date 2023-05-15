@@ -140,18 +140,7 @@ def translate_text(text):
     with open ("chat.txt", "w") as f:
         f.truncate(0)   
 
-def preparation():
-    global conversation, chat_now, chat, chat_prev
-    while True:
-        # If the assistant is not speaking, and the chat is not empty, and the chat is not the same as the previous chat
-        # then the assistant will answer the chat
-        chat_now = chat
-        if is_Speaking == False and chat_now != chat_prev:
-            # Saving chat history
-            conversation.append({'role': 'user', 'content': chat_now})
-            chat_prev = chat_now
-            openai_answer()
-        time.sleep(1)
+
 
 if __name__ == "__main__":
     mode = input("Mode (1-Mic, 2-Keyboard): ")
